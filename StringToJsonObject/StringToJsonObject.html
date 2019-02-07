@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Excersice 1</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <h1> Learn Json </h1>
+        <div id="out"></div>
+        <ul id="tasklist"></ul>
+        <script type="text/javascript">
+        
+        var data='{"tasks":{"trimgrass":false,"cleanroom":false,"gotozumba":true,"makebed":true}}';
+        var dataJson = JSON.parse(data);
+        console.log(dataJson)
+        
+            var output = document.getElementById('out');
+            var tasklist = document.querySelector('#tasklist');
+            
+            for(var key in dataJson.tasks){
+                console.log(key, dataJson.tasks[key])
+                var status = !dataJson.tasks[key] ? '':'checked';
+                var html = '<li>'+key+'<input type="checkbox" value="'+key+'" '+status+'></li>';
+                tasklist.innerHTML += html;
+            }
+        </script>
+    </body>
+</html>
